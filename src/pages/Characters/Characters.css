@@ -23,4 +23,18 @@
   padding: 5px 25px;
   font-size: 30px;
   cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+@media (max-width: 420px) {
+  .back-btn {
+    font-size: 20px;
+    padding: 5px 15px;
+  }
 }
