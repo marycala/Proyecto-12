@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import CharacterCard from '../CharacterCard/CharacterCard'
 import './SearchResults.css'
 import Loading from '../Loading/Loading'
