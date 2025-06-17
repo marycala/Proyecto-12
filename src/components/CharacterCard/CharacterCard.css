@@ -8,37 +8,43 @@
 .character-card h2 {
   color: var(--color-letter);
   font-size: 40px;
+  margin: 0;
 }
 
-.character-card > .cortina {
+.character-card > figure {
+  width: 400px;
+  height: 400px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-card > figure > figcaption {
   width: 100%;
-  height: 0px;
+  height: 0;
   background-color: rgba(103, 103, 103, 0.327);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: absolute;
+  bottom: 0;
+  left: 0;
   transition: all 0.5s;
 }
 
-.character-card:hover > .cortina {
-  height: 400px;
+.character-card:hover > figure > figcaption {
+  height: 100%;
 }
 
-.character-card > .img-wrp {
-  width: 400px;
-  height: 400px;
-}
-
-.character-card > .img-wrp > img {
+.character-card > figure > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 @media (max-width: 420px) {
-  .character-card > .img-wrp {
+  .character-card > figure {
     width: 300px;
     height: 300px;
   }
@@ -57,6 +63,7 @@
   padding: 5px 10px;
   cursor: pointer;
   font-size: 25px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .favorite-btn.active {
