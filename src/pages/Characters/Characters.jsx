@@ -3,7 +3,7 @@ import Loading from '../../components/Loading/Loading'
 import React, { useEffect, useReducer, useState } from 'react'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import Pagination from '../../components/Pagination/Pagination'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const favoritesReducer = (state, action) => {
   switch (action.type) {
@@ -56,9 +56,11 @@ const Characters = () => {
 
   return (
     <main className='characters'>
-      <button onClick={() => navigate('/')} className='back-btn'>
-        ← Home
-      </button>
+      <nav>
+        <Link to='/' className='back-btn'>
+          ← Home
+        </Link>
+      </nav>
 
       {loading && <Loading />}
       {characters.map((character) => (
