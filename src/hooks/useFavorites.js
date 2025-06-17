@@ -1,9 +1,11 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useCallback } from 'react';
 
 const favoritesReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_FAVORITE':
-      return [...state, action.payload];
+      return state.some((char) => char._id === action.payload._id)
+        ? state
+        : [...state, action.payload];
     case 'REMOVE_FAVORITE':
       return state.filter((char) => char._id !== action.payload);
     default:
@@ -23,15 +25,17 @@ const useFavorites = () => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
-  const toggleFavorite = (character) => {
-    dispatch({
-      type: favorites.some((fav) => fav._id === character._id)
-        ? 'REMOVE_FAVORITE'
-        : 'ADD_FAVORITE',
-      payload: character,
-    });
-  };
-
+  const toggleFavorite = useCallback(
+    (character) => {
+      const isFav = favorites.some((fav) => fav._id === character._id);
+      dispatch({
+        type: isFav ? 'REMOVE_FAVORITE' : 'ADD_FAVORITE',
+        payload: isFav ? character._id : character
+      });
+    },
+    [favorites]
+  );
+  
   return { favorites, toggleFavorite };
 };
 
