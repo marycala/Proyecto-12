@@ -57,7 +57,7 @@ const Characters = () => {
   return (
     <main className='characters'>
       <nav>
-        <Link to='/' className='back-btn'>
+        <Link to='/' className='back-btn' aria-label='Go back home'>
           ← Home
         </Link>
       </nav>
