@@ -1,12 +1,21 @@
 .loading {
   width: 100%;
+  height: 80vh;
   height: 80svh;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.loading.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loading > img {
   width: 80%;
   max-width: 600px;
+  display: block;
 }

@@ -1,9 +1,13 @@
 import './Loading.css'
 
-const Loading = () => {
+const Loading = ({ isVisible = true }) => {
   return (
-    <div className='loading'>
-      <img src='/assets/loading.gif' alt='Loading 🔄'></img>
+    <div
+      className={`loading ${!isVisible ? 'hidden' : ''}`}
+      role="status"
+      aria-live="polite"
+    >
+      <img src='/assets/loading.gif' alt='Loading...' />
     </div>
   )
 }
