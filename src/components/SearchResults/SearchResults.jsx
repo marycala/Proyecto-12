@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CharacterCard from '../CharacterCard/CharacterCard'
 import './SearchResults.css'
 import Loading from '../Loading/Loading'
@@ -9,7 +9,6 @@ const SearchResults = () => {
   const [character, setCharacter] = useState(null)
   const [loading, setLoading] = useState(true)
   const [favorites, setFavorites] = useState([])
-  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchCharacter = async () => {
