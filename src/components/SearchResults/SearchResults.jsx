@@ -63,9 +63,11 @@ const SearchResults = () => {
 
   return (
     <div className='result'>
-      <button onClick={() => navigate('/')} className='back-btn'>
-        ← Home
-      </button>
+      <nav>
+        <Link to='/' className='back-btn' aria-label='Go back home'>
+          ← Home
+        </Link>
+      </nav>
       {loading && <Loading />}
       {character ? (
         <CharacterCard
