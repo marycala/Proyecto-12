@@ -1,0 +1,26 @@
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 100px 0 20px 0;
+  z-index: 1;
+}
+
+.character-link {
+  width: min-content;
+}
+
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: transparent;
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+  border-radius: 20px;
+  padding: 5px 25px;
+  font-size: 30px;
+  cursor: pointer;
+}
