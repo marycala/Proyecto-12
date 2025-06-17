@@ -1,18 +1,37 @@
 import './Characters.css'
 import Loading from '../../components/Loading/Loading'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import Pagination from '../../components/Pagination/Pagination'
 import { useNavigate } from 'react-router-dom'
+
+const favoritesReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD':
+      return [...state, action.payload]
+    case 'REMOVE':
+      return state.filter((fav) => fav._id !== action.payload._id)
+    case 'INIT':
+      return action.payload
+    default:
+      return state
+  }
+}
 
 const Characters = () => {
   const navigate = useNavigate()
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
-  const [favorites, setFavorites] = useState(
+
+  const [favorites, dispatch] = useReducer(
+    favoritesReducer,
     JSON.parse(localStorage.getItem('favorites')) || []
   )
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+  }, [favorites])
 
   useEffect(() => {
     setLoading(true)
@@ -28,14 +47,11 @@ const Characters = () => {
   }, [page])
 
   const toggleFavorite = (character) => {
-    let updatedFavorites
     if (favorites.some((fav) => fav._id === character._id)) {
-      updatedFavorites = favorites.filter((fav) => fav._id !== character._id)
+      dispatch({ type: 'REMOVE', payload: character })
     } else {
-      updatedFavorites = [...favorites, character]
+      dispatch({ type: 'ADD', payload: character })
     }
-    setFavorites(updatedFavorites)
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
   }
 
   return (
