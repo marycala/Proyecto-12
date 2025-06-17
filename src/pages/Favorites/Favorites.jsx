@@ -1,18 +1,19 @@
-import React, { useReducer, useEffect } from 'react'
+import React from 'react'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import './Favorites.css'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useFavorites from '../../hooks/useFavorites'
 
 const Favorites = () => {
-  const navigate = useNavigate()
   const { favorites, toggleFavorite } = useFavorites()
 
   return (
     <main className='favorites'>
-      <button onClick={() => navigate('/')} className='back-btn'>
-        ← Home
-      </button>
+      <nav>
+        <Link to='/' className='back-btn' aria-label='Go back home'>
+          ← Home
+        </Link>
+      </nav>
       <h2>My Favorites Characters</h2>
       {favorites.length === 0 ? (
         <p>No favorites yet</p>
