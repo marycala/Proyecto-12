@@ -13,7 +13,6 @@
   justify-items: center;
 }
 
-/* 🎯 Botón de regreso */
 .back-btn {
   position: absolute;
   top: 15px;
@@ -33,7 +32,6 @@
   color: black;
 }
 
-/* 📱 Responsive para tablets y móviles */
 @media (max-width: 768px) {
   .favorites {
     font-size: 24px;
@@ -41,10 +39,7 @@
   }
 
   .favorites-grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(250px, 1fr)
-    ); /* Más pequeño en tablets */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
   }
 
@@ -54,7 +49,6 @@
   }
 }
 
-/* 📱 Responsive para móviles pequeños */
 @media (max-width: 480px) {
   .favorites {
     font-size: 20px;
@@ -62,10 +56,7 @@
   }
 
   .favorites-grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(200px, 1fr)
-    ); /* Aún más compacto */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
   }
 
