@@ -15,9 +15,11 @@ const Character = () => {
 
   return (
     <main className='character'>
-      <button onClick={() => navigate('/characters')} className='back-btn'>
-        ← Characters
-      </button>
+      <nav>
+        <Link to='/' className='back-btn' aria-label='Go back home'>
+          ← Home
+        </Link>
+      </nav>
       <h2>{character?.name}</h2>
       <div>
         <img src={character?.photo} alt={character?.name} />
