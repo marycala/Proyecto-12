@@ -21,7 +21,7 @@ const Header = () => {
           placeholder='Search by name'
           type='text'
         />
-        <button type='submit'>🔍</button>
+        <button className='button' type='submit'>🔍</button>
       </form>
       <nav>
         <ul>
